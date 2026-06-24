@@ -208,22 +208,185 @@ void print18(int n) {
         cout<<endl;
     }
 }
-void print19(int n) {
-    //FOR INPUT N, OUTPUT WILL HAVE 2N ROWS 
+void print19part1(int n) {
     for(int i = 0; i<n; i++) {
-       for(int j = 0; j<=i; j++){
-        
+       for(int j = 0; j<n-i; j++){
+           cout<<"*";
+       }
+       for(int j = 0; j<2*i; j++) {
+           cout<<" ";
+       }
+       for(int j = 0; j<n-i; j++){
+           cout<<"*";
        }
         cout<<endl;
     }
 }
-
+void print19part2(int n) {
+    for(int i = 0; i<n; i++) {
+       for(int j = 0; j<=i; j++){
+           cout<<"*";
+       }
+       for(int j = 0; j<(2*n)-(2*(i+1)); j++) {
+           cout<<" ";
+       }
+       for(int j = 0; j<=i; j++){
+           cout<<"*";
+       }
+        cout<<endl;
+    }
+    
+}
+void print19(int n) {
+    //FOR INPUT N, OUTPUT WILL HAVE 2N ROWS
+    print19part1(n);
+    //Lower Part of the pattern
+    print19part2(n);
+}
+void print20(int n) {
+    // print19part2(n);
+    // print19part1(n);
+    //FOR INPUT N, OUTPUT WILL HAVE (2N-1) ROWS 
+    print19part2(n);
+    //part2
+    for(int i = 1; i<n; i++) {
+        //star1
+        for(int j =0; j<=n-i-1; j++) {
+            cout<<"*";
+        }
+        //space
+        for(int j =0; j<(2*(i)); j++) {
+            cout<<" ";
+        }
+        //star2
+        for(int j =0; j<=n-i-1; j++) {
+            cout<<"*";
+        }
+        cout<<endl;
+    }
+    
+}
+void print21(int n) {
+    //first line
+  for(int i =0; i<n; i++) {
+      cout<<"*";
+  }
+  cout<<endl;
+  //second line to second last line
+  for(int i =0; i<n-2; i++) {
+      cout<<"*";
+      for(int j = 0; j<n-2; j++) {
+          cout<<" ";
+      }
+      cout<<"*";
+      cout<<endl;
+  }
+  //last line
+  for(int i =0; i<n; i++) {
+      cout<<"*";
+  }
+}
+/*
+void print22helper(int n) {
+    // cout<<"<i>";
+    // cout<<n+1;
+    for(int i = 0; i<2*n-1; i++) {
+        cout<<n;
+    }
+    // cout<<n+1;
+}
+void print22(int n) {
+    if(n>1) {
+        // for(int i =0; i<2*n-1; i++) {
+        //     cout<<n;
+        // }
+        print22helper(n);
+        cout<<endl;
+        cout<<n;
+        print22(n-1);
+        cout<<n;
+        cout<<endl;
+        
+        // for(int i =0; i<2*n-1; i++) {
+        //     cout<<n;
+        // }
+        print22helper(n);
+        
+    }
+    else cout<<"1";
+}
+void edited(int n) {
+    for(int i =0; i<2*n-1; i++) {
+        cout<<n;
+    }
+    cout<<endl;
+    cout<<n;
+    if(n==1) return;
+    edited(n-1);
+}
+void printillinitial(int n, int initial) {
+    for(int i =n ; i<initial; i++) {
+        cout<<i;
+    }
+}
+void helprec(int n, int initial) {
+    if(n==1) {
+        cout<<"1"<<endl;
+        return;
+    }
+    printillinitial(n, initial);
+    for(int i =0; i<2*n-1; i++) {
+        cout<<n;
+    }
+    printillinitial(n, initial);
+    cout<<endl;
+    helprec(n-1, initial);
+    printillinitial(n, initial);
+    for(int i =0; i<2*n-1; i++) {
+        cout<<n;
+    }
+    printillinitial(n, initial);
+    cout<<endl;
+    
+}
+void rec22(int n) {
+    int initial = n;
+    if(n==1) {
+        cout<<"1"<<endl;
+        return;
+    }
+    for(int i =0; i<2*n-1; i++) {
+        cout<<n;
+    }
+    cout<<endl;
+    helprec(n-1, initial);
+    for(int i =0; i<2*n-1; i++) {
+        cout<<n;
+    }
+    cout<<endl;
+    
+}
+void two(int n) {
+    for(int i = 0; i<2*n-1; i++) {
+        for(int j =0; j<2*n-1; j++) {
+            int mini = ((n-i)<(n-j)?(n-j) :(n-i));
+            if(mini<1) return;
+            cout<<mini;
+        }
+        // for(int j =n-i+1; j<2*n-1; j++) {
+        //     int maxi = ((n-i)<(n-j)?(n-i) :(n-j));
+        //     cout<<maxi;
+        // }
+        cout<<endl;
+    }
+}
+*/
 
 int main() {
     int n;
     cout<<"Enter your n : ";
     cin>>n;
-    print19(n);
+    two(n);
     cout<<endl;
     cout<<endl;
     cout<<endl;
